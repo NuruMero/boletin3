@@ -13,17 +13,18 @@ public class Aleatorios2 {
 		int numero;
 		int introd;
 		int cont = 4;
+		boolean acertar = false;
 		
 		System.out.println("Generando un número entre 0 y 100...");
 		numero = (int)(Math.random()*100);
 		
 		System.out.println("Adivina el número en el que estoy pensando:");
-		for (int i=0; i < 5; i++) {
+		for (int i=0; i < 5 && acertar == false; i++) {
 			introd = texto.nextInt();
 			
 			if (introd==numero) {
 				System.out.println("¡Felicidades! Has adivinado el número en el que pensaba.");
-				break;
+				acertar = true;
 			}
 			else if (introd > numero) {
 				System.out.println("¡Incorrecto! El número es menor a lo introducido.");
@@ -34,7 +35,7 @@ public class Aleatorios2 {
 				System.out.println("Te quedan " +cont +" intentos.");
 			}
 			
-			if (cont == 0) {
+			if (cont == 0 && acertar == false) {
 				System.out.println("¡Has perdido! El número era: " +numero);
 			}
 			
